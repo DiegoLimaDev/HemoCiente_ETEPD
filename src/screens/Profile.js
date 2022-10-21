@@ -22,11 +22,13 @@ export const Profile = () => {
           <Text style={styles.texts}>Tipo sanguíneo:</Text>
           <Text style={styles.texts}>Data de nascimento:</Text>
           <Text style={styles.texts}>Idade:</Text>
+          <Text style={styles.texts}>Número de doações:</Text>
         </View>
         <View style={styles.insideBox2}>
           <Text style={styles.texts}>O-</Text>
           <Text style={styles.texts}>30/10/1975</Text>
           <Text style={styles.texts}>46</Text>
+          <Text style={styles.texts}>13</Text>
         </View>
       </View>
       {/* <StatusBar style="auto" /> */}

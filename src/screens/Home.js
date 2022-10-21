@@ -29,7 +29,12 @@ export const Home = () => {
       />
       <View>
         <TextInput style={styles.textInput} type="text" placeholder="Email" />
-        <TextInput style={styles.textInput} type="text" placeholder="Senha" />
+        <TextInput
+          style={styles.textInput}
+          type="text"
+          placeholder="Senha"
+          secureTextEntry={true}
+        />
         <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
       </View>
       <TouchableOpacity
@@ -101,6 +106,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     marginTop: windowHeight * 0.05,
+    alignItems: "center",
   },
   icon: {
     marginHorizontal: windowWidth * 0.08,

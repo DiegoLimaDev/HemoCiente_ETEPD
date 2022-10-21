@@ -7,6 +7,8 @@ import { theme } from "./src/utils/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { Modal, TouchableOpacity, View } from "react-native-web";
 import { Dimensions, StyleSheet, Text } from "react-native";
+import { Donations } from "./src/screens/Donations";
+import { Locations } from "./src/screens/Locations";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -25,7 +27,7 @@ const OptionsComponent = () => {
             style={{
               height: windowHeight * 1,
               width: windowWidth * 0.6,
-              backgroundColor: theme.colors.primaryColor,
+              backgroundColor: theme.colors.secondaryColor,
             }}
           >
             <Ionicons
@@ -43,13 +45,34 @@ const OptionsComponent = () => {
                 color={theme.colors.white}
               />
             </Text>
-            <Text style={styles.options}>Meu perfil</Text>
+            <TouchableOpacity
+              onPress={() => {
+                setVisible(!visible);
+                navigation.push("profile");
+              }}
+            >
+              <Text style={styles.options}>Meu perfil</Text>
+            </TouchableOpacity>
             <View style={styles.separator} />
-            <Text style={styles.options}>Doações</Text>
+            <TouchableOpacity
+              onPress={() => {
+                setVisible(!visible);
+                navigation.push("donations");
+              }}
+            >
+              <Text style={styles.options}>Doações</Text>
+            </TouchableOpacity>
             <View style={styles.separator} />
-            <Text style={styles.options}>Locais de doação</Text>
+            <TouchableOpacity
+              onPress={() => {
+                setVisible(!visible);
+                navigation.push("locations");
+              }}
+            >
+              <Text style={styles.options}>Locais de doação</Text>
+            </TouchableOpacity>
             <View style={styles.separator} />
-            <Text style={styles.options}>Vidas salvas</Text>
+            <Text style={styles.options}>Carteira de doador</Text>
             <View style={styles.separator} />
             <TouchableOpacity
               onPress={() => {
@@ -111,6 +134,36 @@ export default function App() {
           component={Profile}
           options={{
             title: "Perfil",
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontSize: 25,
+              fontWeight: "bold",
+              color: theme.colors.white,
+            },
+            headerStyle: { backgroundColor: theme.colors.primaryColor },
+            headerLeft: () => <OptionsComponent />,
+          }}
+        />
+        <Stack.Screen
+          name="donations"
+          component={Donations}
+          options={{
+            title: "Doações",
+            headerTitleAlign: "center",
+            headerTitleStyle: {
+              fontSize: 25,
+              fontWeight: "bold",
+              color: theme.colors.white,
+            },
+            headerStyle: { backgroundColor: theme.colors.primaryColor },
+            headerLeft: () => <OptionsComponent />,
+          }}
+        />
+        <Stack.Screen
+          name="locations"
+          component={Locations}
+          options={{
+            title: "Centros de doação",
             headerTitleAlign: "center",
             headerTitleStyle: {
               fontSize: 25,
